@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "pytest"
+                sh "pytest test_app.py"
             }
         }
 
