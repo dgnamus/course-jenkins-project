@@ -7,12 +7,17 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh "pip install -r requirements.txt"
+                sh """
+                    python3 -m pip install --upgrade pip
+                    python3 -m pip install -r requirements.txt
+                    python3 -m pip install pytest  # Ensure pytest is installed
+                """
             }
         }
+        
         stage('Test') {
             steps {
-                sh "pytest test_app.py"
+                sh "python3 -m pytest"  # Use pytest through Python
             }
         }
 
