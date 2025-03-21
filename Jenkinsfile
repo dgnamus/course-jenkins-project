@@ -10,14 +10,14 @@ pipeline {
                 sh """
                     python3 -m pip install --upgrade pip
                     python3 -m pip install -r requirements.txt
-                    python3 -m pip install pytest  # Ensure pytest is installed
+                    python3 -m pip install pytest
                 """
             }
         }
         
         stage('Test') {
             steps {
-                sh "python3 -m pytest"  # Use pytest through Python
+                sh "python3 -m pytest"
             }
         }
 
